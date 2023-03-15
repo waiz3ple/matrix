@@ -1,0 +1,170 @@
+  /*no maching font or close from Google font so this will be fall back font*/
+  @import url('https://fonts.googleapis.com/css2?family=Montaga&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or use rem*/
+/* the default is 16px which is not very easy to use for calculation */
+
+ 
+
+:root{   /*need to work wit variable to reduce  effort on  media queries */
+    --dark-color: #000;
+    --light-color:#FFF;
+
+    --font-xxl: clamp(2rem, 4vw + 1rem, 8rem);
+    --font-md:  clamp(1rem, 2vw + 1rem, 3rem);
+    --font-sm: 1.8rem;
+    --font-xs: 1.4rem; 
+}  
+
+/*formating without any interference with current page style/*/
+.hero *, .feature-product *, .feature-blog *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero, .feature-blog, .feature-product{
+    width: 90%;
+    max-width: 196rem;
+    margin: 0 auto;
+    font-family: Montregular, Montserrat, sans-serif;  
+    font-size: var(--font-sm);
+
+}
+
+.hero{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 100%;
+    margin-bottom: 7rem; 
+}
+
+.hero .hero-banner{
+    background: url('https://www.matrix.com/-/media/project/loreal/brand-sites/matrix/americas/us_usmx/blog-information/blogs/hair-colour/ways-to-transform-dirty-blonde-hair-color/buttery-blonde.jpg?sc_lang=en-us&rev=b0858851078947e6b5662d1bbfac4ee7') no-repeat;
+    background-size: cover;
+    transform: scaleX(-1);   /*flip bg img to get more room by the right */
+}
+
+.hero .hero-detail{
+    background: #efe7dc ; /*blending color*/
+    padding-bottom: 5rem;
+    padding-right: 1rem;
+}
+
+.hero-detail .eyebrow {
+    background-color: darkred;
+    color: var(--light-color);
+    display: block;
+    width: 8rem;
+    text-align: center;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 1.5px 1px 5px  rgba(0, 0, 0, 0.8);
+}
+
+.hero-detail .title, .feature-product .title {
+    font-size: var(--font-xxl);
+    font-family: Montheavy, Montserrat, sans-serif;
+    font-weight: 900;
+    line-height: 7rem;
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+}
+
+.hero-detail .description{
+   font-size: var(--font-md);
+   line-height: 40px;
+   margin: 30px 0 40px 0;
+}
+
+.hero-detail .owner-btn{
+    font-size: var(--font-xm);
+    font-weight: bold;
+    padding: 15px 45px;
+    color: white;
+    background-color: black;
+    border: 3px solid black;
+    text-transform: uppercase;
+    cursor: pointer;
+    word-wrap: nowrap;
+}
+.hero-detail .owner-btn:hover{
+    color: black;
+    background-color: white;
+}
+
+/*---------FEATURE PRODUCT SECTION---------*/
+
+.feature-product{
+    
+    margin: 5rem  auto 0;
+    padding: 1rem 0;
+    
+}
+
+.feature-product .sub-title{
+    font-size: var(--font-md);
+    margin-bottom: 4rem;
+}
+
+
+.feature-product .title,
+.feature-product .sub-title{
+    text-align: center;
+}
+
+.product-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 5rem;
+    
+}
+
+.product-item{
+    padding: 2.5rem 8rem 0;
+    background-color: #f7f7f7;
+    position: relative;
+
+}
+
+
+.product-item img{
+    height: clamp(10vh, 50vh, 60vh);
+   display: block;
+   margin: 0 auto;
+}
+
+.product-name{
+   font-family: Montheavy;
+   font-weight: 900;
+   font-size: 2.5rem;
+}
+
+.product-name::before{  /* line drawn with psudo-element instead of creating extra tag for the purpose*/
+    content:"";
+    border-top: 3px solid var(--dark-color);
+    display: block;
+    position: relative;
+    margin: 4rem auto 2rem;
+}
+
+.product-item > :not(.product-price), .product-item > a {
+   text-align: center;
+   display: block;
+}
+
+
+/*issues*/
+/*client fonts names and style info where detected but linking to font seems impossible */
+/* no font like Mont fonts on google-fonts the closet is Montaga & Montserra  so I used them */
+/*I found font somewhere else but i have to download, so I push them to github and use but if you dont like them google font will is the fall back font */
+  @font-face{
+      font-family: Montheavy;
+      src: url('fonts/monts/mont-heavy-webfont.woff');
+  }
+
+  @font-face{
+      font-family: Montregular;
+      src: url('fonts/monts/mont-regular-webfont.woff');
+  }
