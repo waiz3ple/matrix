@@ -5,6 +5,8 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 /* the default is 16px which is not very easy to use for calculation */
 
 :root{   /*need to work wit variable to reduce  effort on  media queries */
+    --page-width: 90%;
+    
     --color-dark:      #000;
     --color-white:     #FFF;
     --color-primary:   #efe7dc;
@@ -12,17 +14,15 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     --color-danger:    #b12704;
     --color-success:   #2a8703;
 
-    --font-xxl: clamp(2rem, 4vw + 1rem, 8rem);
-    --font-md:  clamp(1rem, 2vw + 1rem, 3rem);
-    --font-sm: 1.8rem;
-    --font-xs: 1.4rem; 
-    --page-width: 90%;
+    --font-xl: clamp(2rem, 4vw + 1rem, 8rem);
+    --font-lg: clamp(1rem, 2vw + 1rem, 3rem);
+    --font-md: 1.8rem;
+    --font-sm: 1.4rem;
+    --font-xs: 1.4; 
 
-    --gap-lg: 5rem;
+    --gap-lg: 2vw;
     --gap-md: 1rem;
 
-     
-    
 }  
 
 /*formating without any interference with current page style/*/
@@ -34,10 +34,10 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 
 .hero, .feature-blogs, .feature-products{
     width: var(--page-width);
-    max-width: 196rem;
+    max-width: 140rem;
     margin: 0 auto;
     font-family: Montregular, Montserrat, sans-serif;  
-    font-size: var(--font-sm);
+    font-size: var(--font-md);
 
 }
 
@@ -45,7 +45,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 100%;
-    margin-bottom: 7rem; 
+    margin-bottom: 4rem; 
 }
 
 .hero .hero-banner{
@@ -72,8 +72,8 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     box-shadow: 1.5px 1px 5px  rgba(0, 0, 0, 0.8);
 }
 
-.title {
-    font-size: var(--font-xxl);
+.title{
+    font-size: var(--font-xl);
     font-family: Montheavy, Montserrat, sans-serif;
     font-weight: 900;
     line-height: 7rem;
@@ -85,14 +85,14 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     text-align: left;
 }
 .hero-detail .description{
-   font-size: var(--font-md);
+   font-size: var(--font-lg);
    line-height: 40px;
    margin: 30px 0 40px 0;
 }
 
 
 .btn{ 
-    font-size: var(--font-xm);
+    font-size: var(--font-md);
     font-weight: bold;
     font-family: Montheavy, Montserrat, sans-serif;
     border: 3px solid var(--color-dark);
@@ -123,7 +123,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 }
 
 .sub-title{
-    font-size: var(--font-md);
+    font-size: var(--font-lg);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -194,8 +194,12 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 
 /*--------------featured blos------------*/
 .feature-blogs{
-    margin: 3rem auto;
+    margin: 5rem auto;
     /*background-color: var(--color-success);*/  /*to be delete*/
+}
+
+.feature-blogs .title{
+    margin-bottom: 3rem;
 }
 
 .blog-wrapper{
@@ -211,8 +215,23 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
   display: block;
 }
 
-.blog-item a{
+.blog-item .btn-blog{
     display: block;
+}
+
+.blog-item .sub-title{
+    font-size: var(--font-md);
+    font-family: Montheavy, Montserrat, sans-serif;
+    font-weight: 900;
+    margin-top: 1.5rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+
+.blog-item .blog-desc{
+    text-align: center;
 }
 .blog-wrapper :first-child img{
    margin: 0;
@@ -223,7 +242,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     margin-right: 0;   
 }
 
-.blog-wrapper :last-child >  :not(.blog-item img)  {
+.blog-wrapper :last-child >  :not(.blog-item img, .blog-item .btn-blog)  {
     margin-left: 2rem ;
     margin-right: 2rem ;
     text-align: center;
