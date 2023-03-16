@@ -5,7 +5,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 /* the default is 16px which is not very easy to use for calculation */
 
 :root{   /*need to work wit variable to reduce  effort on  media queries */
-    --color-dark:     #000;
+    --color-dark:      #000;
     --color-white:     #FFF;
     --color-primary:   #efe7dc;
     --color-secondary: #f7f7f7;
@@ -16,6 +16,13 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     --font-md:  clamp(1rem, 2vw + 1rem, 3rem);
     --font-sm: 1.8rem;
     --font-xs: 1.4rem; 
+    --page-width: 90%;
+
+    --gap-lg: 5rem;
+    --gap-md: 1rem;
+
+     
+    
 }  
 
 /*formating without any interference with current page style/*/
@@ -26,7 +33,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 }
 
 .hero, .feature-blogs, .feature-products{
-    width: 90%;
+    width: var(--page-width);
     max-width: 196rem;
     margin: 0 auto;
     font-family: Montregular, Montserrat, sans-serif;  
@@ -65,15 +72,18 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     box-shadow: 1.5px 1px 5px  rgba(0, 0, 0, 0.8);
 }
 
-.hero-detail .title, .feature-products .title {
+.title {
     font-size: var(--font-xxl);
     font-family: Montheavy, Montserrat, sans-serif;
     font-weight: 900;
     line-height: 7rem;
     margin-top: 2.5rem;
+    text-align: center;
     text-transform: capitalize;
 }
-
+.hero-detail .title{
+    text-align: left;
+}
 .hero-detail .description{
    font-size: var(--font-md);
    line-height: 40px;
@@ -107,25 +117,22 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 /*---------FEATURE PRODUCT SECTION---------*/
 
 .feature-products{
-    margin: 5rem  auto 0;
+    margin-top: 5rem;
     padding: 1rem 0;
     
 }
 
-.feature-products .sub-title{
+.sub-title{
     font-size: var(--font-md);
     margin-bottom: 2rem;
-}
-
-
-.feature-products .title, .feature-products .sub-title{
     text-align: center;
 }
+
 
 .product-wrapper{
     display: grid;
     grid-template-columns: repeat(2, 2fr);
-    grid-gap: 5rem;
+    grid-gap: var(--gap-lg);
     
 }
 
@@ -165,7 +172,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
    display: block;
 }
 
-.product-desc{
+.product-desc, .blog-desc{
    font: 400 1.4rem/2rem Montregular, sans-serif;
    margin: 1rem 0;
 
@@ -177,7 +184,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     font-weight: bold;
 }
 
-.btn-shopnow{
+.btn-shopnow, .btn-blog{
     text-decoration: none;
     width: fit-content;
     padding: 1rem 2.5rem;
@@ -187,10 +194,40 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 
 /*--------------featured blos------------*/
 .feature-blogs{
-    background-color: var(--color-success);  /*to be delete*/
+    margin: 3rem auto;
+    /*background-color: var(--color-success);*/  /*to be delete*/
 }
 
+.blog-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
+    grid-grap: 1rem;
+}
 
+.blog-item img{
+  width: calc(100% - var(--gap-lg)/2);
+  margin: 0 auto;
+  display: block;
+}
+
+.blog-item a{
+    display: block;
+}
+.blog-wrapper :first-child img{
+   margin: 0;
+   padding-right: var(--gap-lg/2);
+}
+
+.blog-wrapper :last-child img{
+    margin-right: 0;   
+}
+
+.blog-wrapper :last-child >  :not(.blog-item img)  {
+    margin-left: 2rem ;
+    margin-right: 2rem ;
+    text-align: center;
+}
 
   @font-face{
       font-family: Montheavy;
