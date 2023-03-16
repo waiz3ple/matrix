@@ -4,8 +4,6 @@
 html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or use rem*/
 /* the default is 16px which is not very easy to use for calculation */
 
- 
-
 :root{   /*need to work wit variable to reduce  effort on  media queries */
     --color-dark:     #000;
     --color-white:     #FFF;
@@ -21,13 +19,13 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 }  
 
 /*formating without any interference with current page style/*/
-.hero *, .feature-product *, .feature-blog *{
+.hero *, .feature-products *, .feature-blogs *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.hero, .feature-blog, .feature-product{
+.hero, .feature-blogs, .feature-products{
     width: 90%;
     max-width: 196rem;
     margin: 0 auto;
@@ -67,7 +65,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     box-shadow: 1.5px 1px 5px  rgba(0, 0, 0, 0.8);
 }
 
-.hero-detail .title, .feature-product .title {
+.hero-detail .title, .feature-products .title {
     font-size: var(--font-xxl);
     font-family: Montheavy, Montserrat, sans-serif;
     font-weight: 900;
@@ -108,19 +106,19 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 
 /*---------FEATURE PRODUCT SECTION---------*/
 
-.feature-product{
+.feature-products{
     margin: 5rem  auto 0;
     padding: 1rem 0;
     
 }
 
-.feature-product .sub-title{
+.feature-products .sub-title{
     font-size: var(--font-md);
     margin-bottom: 2rem;
 }
 
 
-.feature-product .title, .feature-product .sub-title{
+.feature-products .title, .feature-products .sub-title{
     text-align: center;
 }
 
@@ -151,13 +149,12 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
    font-size: 2.5rem;
 }
 
-.product-name::before{  /* line drawn with psudo-element instead of creating extra tag for the purpose*/
+/*.product-name::before{ 
     content:"";
     border-top: 3px solid var(--dark-color);
     display: block;
     position: relative;
-    margin: 4rem auto 2rem;
-}
+}*/
 
 .product-name--use{
    display: none;
@@ -187,10 +184,14 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     margin: 2rem auto;
 }
 
-/*issues*/
-/*client fonts names and style info where detected but linking to font seems impossible */
-/* no font like Mont fonts on google-fonts the closet is Montaga & Montserra  so I used them */
-/*I found font somewhere else but i have to download, so I push them to github and use but if you dont like them google font will is the fall back font */
+
+/*--------------featured blos------------*/
+.feature-blogs{
+    background-color: var(--color-success);  /*to be delete*/
+}
+
+
+
   @font-face{
       font-family: Montheavy;
       src: url('https://waiz3ple.github.io/matrix/fonts/monts/mont-heavy-webfont.woff');
@@ -208,3 +209,10 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
       src: url('https://waiz3ple.github.io/matrix/fonts/monts/mont-light-webfont.woff');
      /* src: url('fonts/monts/mont-regular-webfont.woff');*/
   }
+
+
+/*issues*/
+/*client fonts names and style info where detected but linking to font seems impossible */
+/* no font like Mont fonts on google-fonts the closet is Montaga & Montserra  so I used them */
+/*I found font somewhere else but i have to download, so I push them to github and use but if you dont like them google font will is the fall back font */
+  
