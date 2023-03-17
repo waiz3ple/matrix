@@ -31,6 +31,7 @@ productContainer.addEventListener('click', function(event){
    //set localStorage
    localStorage.setItem('clicks', JSON.stringify(clickRecord)); 
   }else {
+      //counter is now the value in the storage
      clickRecord = JSON.parse(localStorage.getItem('clicks'))
      updateRecord(event);
      //set localStorage

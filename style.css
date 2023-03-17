@@ -51,6 +51,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 .hero .hero-banner{
     background: url('https://www.matrix.com/-/media/project/loreal/brand-sites/matrix/americas/us_usmx/blog-information/blogs/hair-colour/ways-to-transform-dirty-blonde-hair-color/buttery-blonde.jpg?sc_lang=en-us&rev=b0858851078947e6b5662d1bbfac4ee7') no-repeat;
     background-size: cover;
+    background-position: center ;
     transform: scaleX(-1);   /*flip bg img to get more room by the right */
 }
 
@@ -101,7 +102,6 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     word-wrap: nowrap;
     color: var(--color-white);
     background-color: var(--color-dark);
-    border: 3px solid var(--color-dark);
 }
 
 .btn:hover{
@@ -156,12 +156,6 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
    font-size: 2.5rem;
 }
 
-/*.product-name::before{ 
-    content:"";
-    border-top: 3px solid var(--dark-color);
-    display: block;
-    position: relative;
-}*/
 
 .product-name--use{
    display: none;
@@ -274,7 +268,170 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
   /*display: none;*/
 }
 
+/*media queries*/
+@media only screen and (max-width:1110px){
+    /*mini laptops or tablets*/
+    :root{   /*need to work wit variable to reduce  effort on  media queries */
+        --page-width: 95%;
+        
+        --font-xl: clamp(1.5rem, 3.5vw + .5rem, 6rem);
+        --font-lg: clamp(.5rem, 1.5vw + .5rem, 2.5rem);
+        --font-md: 1.8rem;
+        --font-sm: 1.4rem;
+        --font-xs: 1.4; 
 
+    }  
+
+    .hero{
+        grid-template-rows: 100%;
+        margin-bottom: 1rem; 
+    }
+
+    .hero .hero-detail{
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+    }
+
+    .title{
+        line-height: 4rem;
+        margin-top: 2rem;
+  }
+
+  .btn{ 
+    font-size: var(--font-sm);
+  }
+
+  .hero-detail .description{
+     line-height: 30px;
+     margin: 10px 0 20px 0;
+  }
+
+
+}
+
+@media only screen and (max-width:995px){
+     /*tablets*/
+    :root{ 
+        --page-width: 100%;
+    }  
+
+    .hero{
+        grid-template-rows: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width:965px){
+     /* small Tablets and big phones*/
+
+  .hero{
+      margin-bottom: 2rem; 
+     }
+ 
+ .btn-owner{ 
+     padding: 10px 35px;
+     font-size: var(--font-sm);
+ }
+   .product-item{
+          padding: 1.5rem 3rem;
+    }
+  
+  
+    .product-item img{
+        height: clamp(5vh, 25vh, 30vh);
+    }
+
+    .sub-title{
+      font-size: var(--font-md);
+      margin-bottom: 1rem;
+   }
+
+    .product-name{
+       font-weight: 600;
+       font-size: 1.5rem;
+    }
+
+}
+
+
+@media only screen and (max-width:650px){
+     /* small Tablets and big phones*/
+
+  .hero{
+      margin-bottom: 0rem; 
+     }
+ 
+ .btn-owner{ 
+     padding: 5px 15px;
+     font-size: var(--font-sm);
+ }
+   .product-item{
+          padding: 1rem 2.5rem;
+      }
+
+    .product-item img{
+        height: clamp(4vh, 20vh, 28vh);
+    }
+
+    .sub-title{
+       font-size: var(--font-md);
+       margin-bottom: 1rem;
+     }
+
+   .product-name{
+      font-weight: 600;
+      font-size: 1.5rem;
+  }
+
+}
+
+@media only screen and (max-width:630px){
+     /* small phones*/
+     .hero-detail .eyebrow {
+        display: none;
+     }
+     .product-price{
+        text-align: center;
+     }
+
+     .feature-products{
+        margin-top: 18rem;
+     }
+     
+     .btn-owner{
+        margin: 0 auto;
+        display: block;
+     }
+
+      .hero{
+          grid-template-columns: 100%;
+          grid-template-rows: repeat(2, 100%)
+      }
+
+      .hero-detail .description{
+         line-height: 20px;
+         margin: 10px 0 20px 0;
+         font-size: 15px;
+         text-align: center;
+      }
+
+
+     .hero-detail .title{
+        text-align: center;
+        font-size: var(--font-md);
+     }
+
+     .product-wrapper{
+         grid-template-columns: 100%;
+     }
+
+     .blog-wrapper{
+         grid-template-columns: 100%;
+         grid-template-rows: repeat(3, minmax(min-content, max-content))
+     }
+
+}
   @font-face{
       font-family: Montheavy;
       src: url('https://waiz3ple.github.io/matrix/fonts/monts/mont-heavy-webfont.woff');
