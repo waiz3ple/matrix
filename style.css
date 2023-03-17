@@ -248,6 +248,31 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     text-align: center;
 }
 
+/*  working on alert */
+.alert-owner{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(72, 243, 129, .9);
+    color: rgba(12, 75, 33, .7);
+    border: 3px solid currentColor;
+    width: calc(var(--page-width) - 1.4rem);
+    font: 400 2rem/inherit  Montlight, sans-serif;
+    padding: .5rem 1rem;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+
+.alert-owner span{
+    color: var(--color-dark);
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+
   @font-face{
       font-family: Montheavy;
       src: url('https://waiz3ple.github.io/matrix/fonts/monts/mont-heavy-webfont.woff');
