@@ -261,6 +261,7 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
     position: fixed;
     z-index: 100;
     top: 0;
+    transition: opacity 2s;
 }
 
 .alert-owner span{
@@ -269,7 +270,8 @@ html{ font-size: 62.50%}  /* 10px ==> 1rem safe to use, client did not set it or
 }
 
 .hidden{
-    display: none;
+    opacity: 0;
+  /*display: none;*/
 }
 
 
