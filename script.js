@@ -1,22 +1,13 @@
-/*"https://www.matrix.com/blog/8-things-you-need-to-know-before-going-platinum" // new board to be used
-const heroDescription*/
-
-;(function(){  
-
-
-
+const alertEl = document.querySelector('.alert-owner') 
+const heroDesc = document.querySelector('.description');
+const close = document.querySelector('.alert-owner span') 
+const btnOwner = document.querySelector('.btn.btn-owner');
+const productContainer = document.querySelector('.product-wrapper');
 
 
-   const alertEl = document.querySelector('.alert-owner') 
-   const heroDesc = document.querySelector('.description');
-   const close = document.querySelector('.alert-owner span') 
-   const btnOwner = document.querySelector('.btn.btn-owner');
-   const productContainer = document.querySelector('.product-wrapper');
-
-
+   alertEl.classList.add('hidden') // hide alert 
    heroDesc.textContent = heroDesc.textContent.replace(/chair/gi, 'salon');
 
-   alertEl.classList.add('hidden') // hide it at first
    btnOwner.addEventListener('click', function(event){
       alertEl.classList.remove('hidden')
    })
@@ -25,16 +16,36 @@ const heroDescription*/
       alertEl.classList.add('hidden')
    })
  
+ //initalizing counter 
+ let  clickRecord = {
+      unbreakMyBlondeShampoo: 0,
+      moistureMeRichShampoo: 0
+};
+
  //using event delgation to capture targeted product 
 productContainer.addEventListener('click', function(event){
-  console.log(event.target.dataset-prodcut)
+  //update counter upon click
+  updateRecord(event);
+  //incase there is nothing in the localStorage
+  if(!localStorage.getItem('clicks')){
+   //set localStorage
+   localStorage.setItem('clicks', JSON.stringify(clickRecord)); 
+  }else {
+     clickRecord = JSON.parse(localStorage.getItem('clicks'))
+     updateRecord(event);
+     //set localStorage
+     localStorage.setItem('clicks', JSON.stringify(clickRecord));
+  }
+
 })
 
 
+function updateRecord(event){
+   if(event.target.dataset.product === "unbreak-my-blonde-shampoo"){
+       clickRecord.unbreakMyBlondeShampoo += 1;
+   }
 
-
-
-
-
-
-})()
+    if(event.target.dataset.product === "moisture-me-rich-shampoo"){
+       clickRecord.moistureMeRichShampoo += 1;
+   }
+}
